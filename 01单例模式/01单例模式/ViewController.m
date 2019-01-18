@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "EDSingleton.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    EDSingleton *singleton = [[EDSingleton alloc]init];
+    EDSingleton *singleton1 = [EDSingleton sharedInstance];
+    EDSingleton *singleton2 = [singleton copy];
+    EDSingleton *singleton3 = [singleton mutableCopy];
+
+    
+    
+//    条件满足的额情况下
+    NSLog(@"singleton=%p\nsingleton1=%p\nsingleton2=%p\nsingleton3=%p\n",singleton,singleton1,singleton2,singleton3);
 }
 
 
